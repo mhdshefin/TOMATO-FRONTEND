@@ -58,3 +58,18 @@
         padding: 2vw 4vw;
     }
 }
+@media(max-width:450px){
+    
+    .header-contents{
+        max-width: 65%;
+    }
+    .header-contents p{
+        display: none;
+    }
+    .header-contents h2{
+        font-size: 16px;
+    }
+    .header-contents button{
+        padding: 2vw 4vw;
+    }
+}

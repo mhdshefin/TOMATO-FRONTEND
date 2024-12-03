@@ -55,3 +55,21 @@ margin-top: 30px;
         
     }
 }
+
+
+@media(max-width:500px){
+    .myorders{
+        margin: 120px 0px;
+    }
+    .myorders-order{
+        grid-template-columns: 1fr 2fr 1fr;
+        row-gap: 5px;
+        font-size: 10px;
+    }
+    .myorders-order button{
+        font-size: 6px;
+        padding: 5px 0px;
+        height: 20px;
+        
+    }
+}

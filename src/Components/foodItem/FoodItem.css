@@ -77,3 +77,9 @@
 .food-item-counter img{
     width: 30px;
 }
+
+@media(max-width:450px){
+    .fooditem-img{
+        height: 200px;
+    }
+}

@@ -12,7 +12,7 @@
         const [foodList, setFoodList] = useState([])
         const [showLogin, setShowLogin] = useState(false)
 
-        const url = "http://localhost:4000"
+        const url = "https://tomato-backend-3e3n.onrender.com"
 
         const addToCart = async (itemId) => {
             const normalizedItemId = String(itemId);

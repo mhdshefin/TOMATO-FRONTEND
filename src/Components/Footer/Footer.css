@@ -63,3 +63,36 @@
         text-align: center;
     }
 }
+
+@media(max-width:500px){
+    .footer-content{
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+    }
+    .footer-copyright{
+        text-align: center;
+    }
+    .footer-content-left img{
+        width: 80px;
+    }
+    .footer-content-left{
+        margin-top: -50px;
+    }
+    .footer-content-left p{
+        font-size: 12px;
+    }
+    .footer-soscial-icon img{
+        width: 45px;
+    }
+    .footer-content-center{
+        margin-top: -25px;
+    }
+    .list ul{
+        display: flex;
+        gap: 10px;
+    }
+    .footer-content-right{
+        margin-top: -25px;
+    }
+}

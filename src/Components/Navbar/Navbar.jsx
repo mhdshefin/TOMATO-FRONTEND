@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import './Navbar.css'
 import { assets } from '../../assets/assets'
 import { Link, useNavigate } from 'react-router-dom'
@@ -7,6 +7,12 @@ import { storeContext } from '../../Context/storeContext'
 
 
 const Navbar = ({ setShowLogin }) => {
+  const menuRef = useRef()
+  const dropdown_toggle = (e) =>{
+    menuRef.current.classList.toggle('nav-menu-visible')
+    e.target.classList.toggle('open')
+  }
+  
 
   const [menu, setmenu] = useState("home")
   const { getTotalCartAmount, token, setToken} = useContext(storeContext)
@@ -30,7 +36,8 @@ const Navbar = ({ setShowLogin }) => {
   return (
     <div className='Navbar'>
       <Link to={'/'}><img src={assets.logo} alt="" className="logo" /></Link>
-      <ul className="nav-menu">
+      <img className='nav-dropdown' onClick={dropdown_toggle} src={assets.menu} alt="..." />
+      <ul ref={menuRef} className="nav-menu">
         <Link to='/' onClick={() => { setmenu("home") }} className={menu === "home" ? "active" : ""}>Home</Link>
         <a href='#explore-menu' onClick={() => { setmenu("menu") }} className={menu === "menu" ? "active" : ""}>Menu</a>
         <a href='#appDownload' onClick={() => { setmenu("mobile-app") }} className={menu === "mobile-app" ? "active" : ""}>Mobile App</a>

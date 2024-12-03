@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom'
 const FoodItem = ({ id, name, price, image, description }) => {
   
   const navigate = useNavigate()
-  const url = "http://localhost:4000"
+  const url = "https://tomato-backend-3e3n.onrender.com"
   
   
   const { cartItems,addToCart,removeFromCart,token,setShowLogin} = useContext(storeContext)
