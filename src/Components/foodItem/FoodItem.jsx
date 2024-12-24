@@ -21,7 +21,7 @@ const FoodItem = ({ id, name, price, image, description }) => {
     
     <div className='fooditem'>
       <div className="fooditem-img-container">
-        <img className='fooditem-img' src={`${url}/images/`+image} alt="" />
+        <img className='fooditem-img' src={image} alt="" />
         
         {!cartItems[id]
         ?<img onClick={()=>{!token?setShowLogin(true):addToCart(id)}} src={assets.add_icon_white} alt="" className="add" />

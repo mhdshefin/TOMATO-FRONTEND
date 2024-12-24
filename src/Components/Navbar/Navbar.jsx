@@ -8,14 +8,14 @@ import { storeContext } from '../../Context/storeContext'
 
 const Navbar = ({ setShowLogin }) => {
   const menuRef = useRef()
-  const dropdown_toggle = (e) =>{
+  const dropdown_toggle = (e) => {
     menuRef.current.classList.toggle('nav-menu-visible')
     e.target.classList.toggle('open')
   }
-  
+
 
   const [menu, setmenu] = useState("home")
-  const { getTotalCartAmount, token, setToken} = useContext(storeContext)
+  const { getTotalCartAmount, token, setToken, setVisible, visible } = useContext(storeContext)
 
   const navigate = useNavigate()
 
@@ -25,11 +25,11 @@ const Navbar = ({ setShowLogin }) => {
     navigate("/")
   }
 
-  const handlelogin = (e)=>{
+  const handlelogin = (e) => {
     if (!token) {
       e.preventDefault();
       setShowLogin(true)
-    }else{
+    } else {
       navigate('/cart')
     }
   }
@@ -44,7 +44,7 @@ const Navbar = ({ setShowLogin }) => {
         <a href='#footer' onClick={() => { setmenu("contact-us") }} className={menu === "contact-us" ? "active" : ""}>Contact Us</a>
       </ul>
       <div className="navbar-right">
-        <img src={assets.search_icon} alt="" />
+        <Link to={'/'}><a href="#explore-menu"><img onClick={() => setVisible(!visible)} src={assets.search_icon} alt="" /></a></Link>
         <div className="navbar-search-icon">
           <Link to={'/cart'} onClick={handlelogin} ><img src={assets.basket_icon} alt="" /></Link>
           <div className={getTotalCartAmount() <= 0 ? "" : "dot"}></div>
@@ -53,7 +53,7 @@ const Navbar = ({ setShowLogin }) => {
           <img src={assets.profile_icon} alt="" />
           <ul className='nav-profile-dropdown'>
             <div>
-              <li onClick={()=>{navigate("/myorders")}}><img src={assets.bag_icon} alt="" /></li><p onClick={()=>{navigate("/myorders")}}>Orders</p>
+              <li onClick={() => { navigate("/myorders") }}><img src={assets.bag_icon} alt="" /></li><p onClick={() => { navigate("/myorders") }}>Orders</p>
             </div>
             <hr />
             <div>

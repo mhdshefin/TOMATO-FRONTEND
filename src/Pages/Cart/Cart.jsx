@@ -28,7 +28,7 @@ const Cart = () => {
           return (
             <React.Fragment key={item._id}>
             <div className="cart-items-title cart-items-item">
-              <img src={url+"/images/"+item.image} alt="" />
+              <img src={item.image} alt="" />
               <p>{item.name}</p>
               <p className='p-tag'>${item.price}</p>
               <p className='p-tag'>{cartItems[item._id]}</p>
