@@ -6,13 +6,14 @@ import { assets } from '../../assets/assets'
 
 const MyOrders = () => {
 
-    const { url, token } = useContext(storeContext)
+    const { url, token, setLoading } = useContext(storeContext)
     const [data, setData] = useState([])
 
     const fetchOrders = async (req, res) => {
+        setLoading(true)
         const response = await axios.post(url + "/api/order/userorders", {}, { headers: { token } })
         setData([...response.data.data])
-
+        setLoading(false)
     }
 
     useEffect(() => {
@@ -39,7 +40,7 @@ const MyOrders = () => {
                             <p>${order.amount}.00</p>
                             <p> {order.items.length}  Items</p>
                             <p><span>&#x25cf;   </span><b>{order.status}</b></p>
-                            <button onClick={()=>{fetchOrders()}}>Track Order</button>
+                            <button onClick={() => { fetchOrders() }}>Track Order</button>
                         </div>
                     )
                 })}

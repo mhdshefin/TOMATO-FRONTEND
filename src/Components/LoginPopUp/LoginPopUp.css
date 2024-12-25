@@ -6,6 +6,7 @@
     background-color: #00000090;
     display: grid;
     top: 0;
+    left: 0;
 }
 
 .login-popup-container {
@@ -55,6 +56,10 @@
     background-color: tomato;
     font-size: 15px;
     cursor: pointer;
+}
+
+.login-popup-container button:hover{
+    background-color: rgb(183, 70, 50);
 }
 
 .login-popup-condition{

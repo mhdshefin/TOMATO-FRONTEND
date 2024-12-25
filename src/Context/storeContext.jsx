@@ -12,7 +12,9 @@ const storeContextProvider = (props) => {
     const [foodList, setFoodList] = useState([])
     const [showLogin, setShowLogin] = useState(false)
     const [visible, setVisible] = useState(false)
-    const [search,setSearch] = useState("")
+    const [search, setSearch] = useState("")
+    const [loading, setLoading] = useState(true)
+
 
     const url = "https://tomato-backend-3e3n.onrender.com"
 
@@ -46,9 +48,10 @@ const storeContextProvider = (props) => {
     };
 
     const loadData = async (token) => {
+        setLoading(true)
         const response = await axios.post(url + "/api/cart/get", {}, { headers: { token } })
         setCartItem(response.data.cartData)
-
+        setLoading(false)
     }
 
 
@@ -84,11 +87,12 @@ const storeContextProvider = (props) => {
 
 
     const fetchList = async () => {
+        setLoading(true)
         const response = await axios.get(`${url}/api/food/list`)
 
         if (response.data.success) {
             setFoodList(response.data.data)
-
+            setLoading(false)
         }
         else {
             return null
@@ -112,7 +116,9 @@ const storeContextProvider = (props) => {
         visible,
         setVisible,
         search,
-        setSearch
+        setSearch,
+        loading,
+        setLoading
     }
 
 

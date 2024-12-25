@@ -40,6 +40,10 @@
 margin-top: 30px;
 }
 
+.place-order .cart-total button:hover{
+    background-color: tomato;
+}
+
 @media(max-width:700px){
     .place-order{
         display: flex;

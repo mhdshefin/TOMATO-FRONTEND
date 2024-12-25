@@ -6,7 +6,7 @@ import axios from 'axios'
 
 const LoginPopUp = ({ setShowLogin }) => {
 
-    const { url, setToken } = useContext(storeContext)
+    const { url, setToken, setLoading } = useContext(storeContext)
     const [currentState, setCurrentState] = useState('Sign Up')
 
     const [data, setData] = useState({
@@ -22,10 +22,6 @@ const LoginPopUp = ({ setShowLogin }) => {
         setData((data) => ({ ...data, [name]: value }))
     }
 
-    useEffect(() => {
-        console.log(data);
-
-    }, [data])
 
     const onLogin = async (event) => {
         event.preventDefault()
@@ -38,10 +34,12 @@ const LoginPopUp = ({ setShowLogin }) => {
             newUrl += "/api/user/register"
         }
         const response = await axios.post(newUrl, data)
+        setLoading(true)
         if (response.data.success) {
             setToken(response.data.token)
             localStorage.setItem("token", response.data.token)
             setShowLogin(false)
+            setLoading(false)
         }
         else {
             alert(response.data.message)

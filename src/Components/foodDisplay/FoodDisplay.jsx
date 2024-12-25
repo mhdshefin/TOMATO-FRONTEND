@@ -8,7 +8,7 @@ import FoodItem from '../foodItem/FoodItem'
 const FoodDisplay = ({ category, setShowlogin }) => {
 
 
-    const { foodList, visible, search } = useContext(storeContext)
+    const { foodList, visible, search, loading, setLoading } = useContext(storeContext)
     const [Food, setFood] = useState([])
 
     const filteredFood = () => {
@@ -31,7 +31,7 @@ const FoodDisplay = ({ category, setShowlogin }) => {
                 {Food.map((item, index) => {
                     if (category === 'All' || category === item.category) {
                         console.log(item.image);
-                        
+
                         return <FoodItem key={index} id={item._id} name={item.name} description={item.description} price={item.price} image={item.image} />
                     }
                 })}

@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 const PlaceOrder = () => {
 
-  const { getTotalCartAmount, foodList, cartItems, url, token } = useContext(storeContext)
+  const { getTotalCartAmount, foodList, cartItems, url, token, setLoading } = useContext(storeContext)
 
   const [data, setData] = useState({
     firstName: "",
@@ -48,8 +48,7 @@ const PlaceOrder = () => {
       console.log(response.data);
 
       if (response.data.success) {
-        console.log(response.data);
-
+        setLoading(false)
         const { session_url } = response.data;
         window.location.replace(session_url);
       } else {
@@ -66,7 +65,7 @@ const PlaceOrder = () => {
   useEffect(() => {
     if (!token) {
       navigate('/cart')
-    }else if (getTotalCartAmount()===0) {
+    } else if (getTotalCartAmount() === 0) {
       navigate("/cart")
     }
   }, [token])
