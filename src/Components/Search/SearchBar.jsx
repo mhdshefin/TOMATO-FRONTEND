@@ -5,7 +5,7 @@ import './searchbar.css'
 
 const SearchBar = () => {
 
-    const { visible, setVisible , search , setSearch } = useContext(storeContext)
+    const { visible, setVisible , setSearch } = useContext(storeContext)
     
 
     return visible ? (

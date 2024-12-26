@@ -10,7 +10,6 @@ import SearchBar from '../../Components/Search/SearchBar'
 const Home = ({ setShowlogin }) => {
   const [category, setCategory] = useState('All')
 
-
   return (
     <div className='home'>
       <Header />
