@@ -2,6 +2,7 @@ import basket_icon from './basket_icon.png'
 import logo from './logo.png'
 import header_img from './header_img.png'
 import search_icon from './search_icon.png'
+
 import menu_1 from './menu_1.png'
 import menu_2 from './menu_2.png'
 import menu_3 from './menu_3.png'
@@ -60,6 +61,7 @@ import bag_icon from './bag_icon.png'
 import logout_icon from './logout_icon.png'
 import parcel_icon from './parcel_icon.png'
 import menu from './menu.png'
+import header_mobile from './header_mobile.png'
 
 export const assets = {
     logo,
@@ -77,6 +79,7 @@ export const assets = {
     twitter_icon,
     cross_icon,
     selector_icon,
+    header_mobile,
     profile_icon,
     logout_icon,
     bag_icon,

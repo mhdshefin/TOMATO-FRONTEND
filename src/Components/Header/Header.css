@@ -7,6 +7,12 @@
     border-radius: 10px;
     top: 40px;
 }
+.header-mobile img{
+    margin-top: 10vh;
+    height: 27vh;
+    border-radius: 20px;
+}
+
 .header-contents{
     position: absolute;
     display: flex;
