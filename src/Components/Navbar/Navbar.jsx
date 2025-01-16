@@ -25,6 +25,25 @@ const Navbar = ({ setShowLogin }) => {
     navigate("/")
   }
 
+  const handleSearch = (e) => {
+    e.preventDefault()
+    if (window.location.pathname !== '/') {
+      navigate('/')
+      setTimeout(() => {
+        scrollToSection('explore-menu')
+      }, 300)
+    } else {
+      scrollToSection('explore-menu')
+    }
+  }
+
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id)
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
   const handlelogin = (e) => {
     if (!token) {
       e.preventDefault();
@@ -44,7 +63,7 @@ const Navbar = ({ setShowLogin }) => {
         <a href='#footer' onClick={() => { setmenu("contact-us") }} className={menu === "contact-us" ? "active" : ""}>Contact Us</a>
       </ul>
       <div className="navbar-right">
-        <Link to={'/'}><a href="#explore-menu"><img onClick={() => setVisible(!visible)} src={assets.search_icon} alt="" /></a></Link>
+        <a href='#explore-menu' onClick={() => handleSearch}><img onClick={() => setVisible(!visible)} src={assets.search_icon} alt="" /></a>
         <div className="navbar-search-icon">
           <Link to={'/cart'} onClick={handlelogin} ><img src={assets.basket_icon} alt="" /></Link>
           <div className={getTotalCartAmount() <= 0 ? "" : "dot"}></div>

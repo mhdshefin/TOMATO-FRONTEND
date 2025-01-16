@@ -9,8 +9,8 @@ import LoginPopUp from './Components/LoginPopUp/LoginPopUp'
 import { storeContext } from './Context/storeContext'
 import Verify from './Pages/Verify/Verify'
 import MyOrders from './Pages/myOrders/MyOrders'
-import { ClipLoader } from 'react-spinners'
 import { useEffect } from 'react'
+import Spiner from './Components/Spinner/Spiner'
 
 
 const App = () => {
@@ -19,33 +19,37 @@ const App = () => {
 
   useEffect(() => {
     setLoading(loading)
+
+    if (loading) {
+      document.body.style.overflow = 'hidden'
+    }else{
+      document.body.style.overflow = 'auto'
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    }
+    
   }, [loading])
 
   return (
     <>
-      {loading ?
-        <div className='spinner-container'>
-          <ClipLoader color='tomato' size={100} />
-        </div> : <>
-          <div className='app'>
-            {showLogin ? <LoginPopUp setShowLogin={setShowLogin} /> : <></>}
-            <div>
-              <Navbar setShowLogin={setShowLogin} />
-              <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path='/cart' element={<Cart />} />
-                <Route path='/order' element={<PlaceOrder />} />
-                <Route path='/verify' element={<Verify />} />
-                <Route path='/myorders' element={<MyOrders />} />
-              </Routes>
-            </div>
-            <Footer />
-          </div>
-        </>
-      }
-
+      <div className='app'>
+        {showLogin ? <LoginPopUp setShowLogin={setShowLogin} /> : <></>}
+        <div>
+          <Navbar setShowLogin={setShowLogin} />
+          {loading ? <Spiner /> : <></>}
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/order' element={<PlaceOrder />} />
+            <Route path='/verify' element={<Verify />} />
+            <Route path='/myorders' element={<MyOrders />} />
+          </Routes>
+        </div>
+        <Footer />
+      </div>
     </>
-
   )
 }
 
