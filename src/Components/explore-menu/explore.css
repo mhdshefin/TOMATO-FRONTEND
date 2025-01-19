@@ -9,6 +9,7 @@
     font-weight: 500;
 }
 
+
 .explore-menu-text {
     max-width: 60%;
     columns: #808080;
@@ -66,6 +67,9 @@
     .explore-menu-text {
         max-width: 100%;
         font-size: 14px;
+    }
+    .explore-menu {
+        margin-top: 5vh;
     }
 
     .explore-menu-list-item img {

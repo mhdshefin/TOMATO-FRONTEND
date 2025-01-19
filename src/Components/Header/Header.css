@@ -8,9 +8,16 @@
     top: 40px;
 }
 .header-mobile img{
-    margin-top: 10vh;
-    height: 27vh;
+    margin-top: 12vh;
+    height: 29vh;
     border-radius: 20px;
+}
+.mobile-txt{
+    font-size: large;
+    font-weight: bold;
+    margin-top: -7vh;
+    margin-left: 1vh;
+    color: #fff;
 }
 
 .header-contents{
